@@ -1,8 +1,11 @@
-import { combineSlices, configureStore } from "@reduxjs/toolkit";
-import auth from "../slices/auth";
-import user from "../slices/user";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import authReducer from "../slices/auth";
+import userReducer from "../slices/user";
 
-export const rootReducer = combineSlices(auth, user); //Se pueden pasar multiples slices para combinarlos todos en uno solo (rootReducer)
+const rootReducer = combineReducers({
+  auth: authReducer,
+  user: userReducer,
+});
 
 export default configureStore({
   reducer: rootReducer,

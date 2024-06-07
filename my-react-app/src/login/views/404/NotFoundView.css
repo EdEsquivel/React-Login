@@ -17,7 +17,7 @@
   .back-home-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #1c724b;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -25,6 +25,6 @@
   }
   
   .back-home-link:hover {
-    background-color: #0056b3;
+    background-color: #06451d;
   }
   

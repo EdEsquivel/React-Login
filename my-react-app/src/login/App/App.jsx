@@ -4,6 +4,9 @@ import Layout from "../components/Layout";
 import { Provider } from "react-redux";
 import store from "../store";
 import LoginView from "../views/Login";
+import LogoutView from "../views/Logout"; // Importar la vista de Logout
+import PerfilView from "../views/Perfil"; // Importar la vista de Perfil
+import ProtectedRoute from "../components/ProtectedRoute";
 import NotFoundView from "../views/404";
 
 const appOptions = [
@@ -16,10 +19,15 @@ const appOptions = [
     to: "login",
   },
   {
+    title: "Logout",
+    to: "logout",
+  },
+  {
     title: "Perfil",
     to: "perfil",
   },
 ];
+
 function App() {
   return (
     <>
@@ -29,7 +37,10 @@ function App() {
             <Route path="" element={<Layout options={appOptions} />}>
               <Route path="home" element={<HomeView />} />
               <Route path="login" element={<LoginView />} />
-              <Route path="perfil" element={<div>Perfil</div>} />
+              <Route path="logout" element={<LogoutView />} />
+              <Route path="perfil" element={<ProtectedRoute />}>
+                <Route path="" element={<PerfilView />} />
+              </Route>
               <Route path="/" element={<Navigate to="home" />} />
               <Route path="*" element={<NotFoundView />} /> 
             </Route>
